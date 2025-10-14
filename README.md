@@ -1,6 +1,6 @@
 # 🛍️ E-Commerce Flutter Application
 
-A production-ready e-commerce mobile application built with **Flutter** following **Clean Architecture** principles, **SOLID** design patterns, and modern state management using **Riverpod**. Where i prefer feature layer pattern and i completely create the architecture and create the module using **SSL_CLI**.
+A production-ready e-commerce mobile application built with ***Flutter***, following ***Clean Architecture*** principles, SOLID design patterns, and modern state management using ***Riverpod***. The project adopts a feature-layered architecture, and I created the entire module structure using ***SSL_CLI***..
 
 ## 📋 Table of Contents
 
@@ -19,7 +19,7 @@ A production-ready e-commerce mobile application built with **Flutter** followin
 
 ## 🏗️ Architecture Overview
 
-This project implements **Clean Architecture** with clear separation of concerns across three layers:
+This project implements ***Clean Architecture*** with clear separation of concerns across three layers:
 
 ### **1. Presentation Layer**
 - **UI Components**: Pages, Widgets, Components
