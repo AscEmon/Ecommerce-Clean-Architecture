@@ -1,0 +1,62 @@
+publish_to: "none"
+name: ecommerce
+description: "A new Flutter project."
+
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.9.2
+
+dependencies:
+  flutter_localizations:
+    sdk: flutter
+  flutter:
+    sdk: flutter
+
+  cupertino_icons: ^1.0.8
+  dio: ^5.9.0
+  shared_preferences: ^2.5.3
+  intl: ^0.20.2
+  connectivity_plus: ^7.0.0
+  flutter_screenutil: ^5.9.3
+  package_info_plus: ^9.0.0
+  flutter_svg: ^2.2.1
+  google_fonts: ^6.2.1
+  equatable: ^2.0.7
+  dartz: ^0.10.1
+  get_it: ^8.2.0
+  flutter_riverpod: ^3.0.1
+  riverpod_annotation: ^3.0.1
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  build_runner: ^2.4.8
+  riverpod_generator: ^3.0.1
+  custom_lint: ^0.8.0
+  riverpod_lint: ^3.0.1
+
+  flutter_lints: ^5.0.0
+
+
+flutter:
+
+  uses-material-design: true
+  generate: true
+  assets:
+    - assets/images/
+    - assets/svg/
+
+
+  # fonts:
+  #   - family: Hero New
+  #     fonts:
+  #       - asset: assets/fonts/Hero_New_Bold.otf
+  #       - asset: assets/fonts/Hero_New_Medium.otf
+  #       - asset: assets/fonts/Hero_New_Regular.otf
+  #       - asset: assets/fonts/Hero_New_SemiBold.otf
+  #       - asset: assets/fonts/Hero_New_Light.otf
+ 
+
+
+
