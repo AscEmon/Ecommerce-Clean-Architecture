@@ -36,7 +36,7 @@ final class ProductNotifierProvider
   ProductNotifier create() => ProductNotifier();
 }
 
-String _$productNotifierHash() => r'1ea1158fe09f2b6a9fc20cf2b7d794ecae2902e0';
+String _$productNotifierHash() => r'e90627364920f2b29050167b30ce63aa639671e8';
 
 /// Provider for product items with pagination support
 

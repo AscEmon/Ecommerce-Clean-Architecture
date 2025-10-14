@@ -61,8 +61,8 @@ class CustomDrawer extends StatelessWidget {
                   horizontalTitleGap: 10,
                   title: const GlobalText(str: 'Profile'),
                   onTap: () {
-                    // Navigator.pop(context);
-                    // Navigation.push(context, appRoutes: AppRoutes.profile);
+                    Navigator.pop(context);
+                    Navigation.push(context, appRoutes: AppRoutes.profile);
                   },
                 ),
                 SizedBox(height: 10.h),

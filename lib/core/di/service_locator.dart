@@ -1,5 +1,9 @@
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:dio/dio.dart';
+import 'package:ecommerce/features/profile/data/datasources/profile_remote_datasource.dart';
+import 'package:ecommerce/features/profile/data/repositories/profile_repository_impl.dart';
+import 'package:ecommerce/features/profile/domain/repositories/profile_repository.dart';
+import 'package:ecommerce/features/profile/domain/usecases/get_profile.dart';
 import 'package:get_it/get_it.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -30,16 +34,13 @@ import '/features/products/domain/usecases/get_products.dart';
 final sl = GetIt.instance;
 
 Future<void> initDependencies() async {
- 
   sl.registerLazySingleton<Dio>(() => Dio());
 
   sl.registerLazySingleton<Connectivity>(() => Connectivity());
 
- 
   sl.registerLazySingleton<NetworkInfo>(
     () => NetworkInfoImpl(connectivity: sl()),
   );
-
 
   sl.registerLazySingleton<PrefHelper>(() => PrefHelper.instance);
   sl.registerLazySingleton<ApiClient>(
@@ -51,7 +52,6 @@ Future<void> initDependencies() async {
   sl.registerLazySingleton<ProductRemoteDataSource>(
     () => ProductRemoteDataSourceImpl(apiClient: sl()),
   );
-
 
   sl.registerLazySingleton<ProductLocalDataSource>(
     () => ProductLocalDataSourceImpl(),
@@ -65,7 +65,6 @@ Future<void> initDependencies() async {
     ),
   );
 
-
   sl.registerLazySingleton(() => GetProducts(sl()));
   sl.registerLazySingleton(() => GetProductById(sl()));
 
@@ -73,11 +72,9 @@ Future<void> initDependencies() async {
     () => AuthRemoteDataSourceImpl(apiClient: sl()),
   );
 
-
   sl.registerLazySingleton<AuthLocalDataSource>(
     () => AuthLocalDataSourceImpl(prefHelper: sl()),
   );
-
 
   sl.registerLazySingleton<AuthRepository>(
     () => AuthRepositoryImpl(
@@ -87,7 +84,6 @@ Future<void> initDependencies() async {
   );
 
   sl.registerLazySingleton(() => LoginUseCase(authRepository: sl()));
-
 
   final sharedPreferences = await SharedPreferences.getInstance();
   sl.registerSingleton<SharedPreferences>(sharedPreferences);
@@ -110,6 +106,15 @@ Future<void> initDependencies() async {
   /// Depends on: CartRepository
   sl.registerLazySingleton(() => RemoveFromCart(sl()));
 
+  sl.registerLazySingleton<ProfileRemoteDataSource>(
+    () => ProfileRemoteDataSourceImpl(apiClient: sl()),
+  );
+
+  sl.registerLazySingleton<ProfileRepository>(
+    () => ProfileRepositoryImpl(remoteDataSource: sl(), networkInfo: sl()),
+  );
+
+  sl.registerLazySingleton(() => GetProfile(sl()));
 }
 
 /// Reset all dependencies (useful for testing)

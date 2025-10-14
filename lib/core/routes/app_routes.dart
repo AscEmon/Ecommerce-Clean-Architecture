@@ -4,8 +4,9 @@ import '../../features/auth/presentation/pages/login_page.dart';
 import '../../features/dashboard/presentation/pages/dashboard_page.dart';
 import '../../features/products/presentation/pages/product_page.dart';
 import '../../features/products/presentation/pages/product_details_page.dart';
+import '../../features/profile/presentation/pages/profile_page.dart';
 
-enum AppRoutes { login, mainContainer, product, productDetails }
+enum AppRoutes { login, mainContainer, product, productDetails, profile }
 
 extension AppRoutesExtention on AppRoutes {
   Widget buildWidget<T extends Object>({T? arguments}) {
@@ -20,6 +21,8 @@ extension AppRoutesExtention on AppRoutes {
         if (arguments is int) {
           return ProductDetailsPage(productId: arguments);
         }
+      case AppRoutes.profile:
+        return const ProfilePage();
     }
     return const SizedBox();
   }
