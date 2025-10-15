@@ -4,6 +4,8 @@ A production-ready e-commerce mobile application built with ***Flutter***, follo
 
 ## 📋 Table of Contents
 
+- [Screenshots](#-screenshots)
+- [Demo Credentials](#-demo-credentials)
 - [Architecture Overview](#-architecture-overview)
 - [Key Features](#-key-features)
 - [Tech Stack](#-tech-stack)
@@ -14,6 +16,44 @@ A production-ready e-commerce mobile application built with ***Flutter***, follo
 - [Getting Started](#-getting-started)
 - [Build & Run](#-build--run)
 - [Code Quality](#-code-quality)
+
+---
+
+## 📱 Screenshots
+
+### Login
+<img src="screenshots/login.png" width="250" alt="Login Screen"/>
+
+### Product List
+<div style="display: flex; gap: 10px;">
+  <img src="screenshots/productlist_light.png" width="250" alt="Product List Light"/>
+  <img src="screenshots/productlist_dark.png" width="250" alt="Product List Dark"/>
+</div>
+
+### Product Details
+<div style="display: flex; gap: 10px;">
+  <img src="screenshots/product_details_light.png" width="250" alt="Product Details Light"/>
+  <img src="screenshots/product_details_dark.png" width="250" alt="Product Details Dark"/>
+</div>
+
+### Shopping Cart
+<div style="display: flex; gap: 10px;">
+  <img src="screenshots/cart_light.png" width="250" alt="Cart Light"/>
+  <img src="screenshots/cart_dark.png" width="250" alt="Cart Dark"/>
+</div>
+
+---
+
+## 🔐 Demo Credentials
+
+Use these credentials to test the application after installation:
+
+```
+Username: emilys
+Password: emilyspass
+```
+
+**Note**: This application uses the [DummyJSON API](https://dummyjson.com) for demo purposes. You can also try other test users from their documentation.
 
 ---
 
@@ -450,7 +490,7 @@ sl.registerFactory<LoginUseCase>(() => LoginUseCase(repository: sl()));
 
 1. **Clone the repository**
 ```bash
-git clone https://github.com/yourusername/ecommerce.git
+git clone https://github.com/AscEmon/Ecommerce-Clean-Architecture.git
 cd ecommerce
 ```
 
@@ -462,6 +502,17 @@ flutter pub get
 3. **Generate code (Riverpod providers)**
 ```bash
 dart run build_runner build --delete-conflicting-outputs
+```
+
+4. **Run the app**
+```bash
+flutter run --dart-define=flavorType=DEV
+```
+
+5. **Login with demo credentials**
+```
+Username: emilys
+Password: emilyspass
 ```
 
 ---
