@@ -72,4 +72,3 @@ class ApiRequest {
     required this.execute,
   });
 }
-

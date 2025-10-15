@@ -1,5 +1,4 @@
- 
- import 'package:flutter/material.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../theme/app_colors.dart';
@@ -31,7 +30,20 @@ class GlobalNetworkDialog extends StatelessWidget {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            Icon(Icons.wifi_off, color: AppColors.error.color),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                const Spacer(),
+                Icon(Icons.wifi_off, color: AppColors.error.color),
+                const Spacer(),
+                IconButton(
+                  icon: Icon(Icons.close, color: AppColors.error.color),
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                ),
+              ],
+            ),
             const SizedBox(height: 16),
             const GlobalText(
               str: 'No Internet Connection',
@@ -55,4 +67,3 @@ class GlobalNetworkDialog extends StatelessWidget {
     );
   }
 }
- 

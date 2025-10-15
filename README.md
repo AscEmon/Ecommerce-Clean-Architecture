@@ -77,13 +77,6 @@ This project implements ***Clean Architecture*** with clear separation of concer
 - **riverpod_annotation**: ^3.0.1
 - **riverpod_generator**: ^3.0.1
 
-### **Networking**
-- **dio**: ^5.9.0 - HTTP client
-- **connectivity_plus**: ^7.0.0 - Network monitoring
-
-### **Local Storage**
-- **shared_preferences**: ^2.5.3 - Persistent key-value storage
-
 ### **Functional Programming**
 - **dartz**: ^0.10.1 - Either, Option, and functional utilities
 - **equatable**: ^2.0.7 - Value equality
@@ -91,14 +84,6 @@ This project implements ***Clean Architecture*** with clear separation of concer
 ### **Dependency Injection**
 - **get_it**: ^8.2.0 - Service locator pattern
 
-### **UI & Styling**
-- **flutter_screenutil**: ^5.9.3 - Responsive design
-- **google_fonts**: ^6.2.1 - Custom fonts
-- **flutter_svg**: ^2.2.1 - SVG support
-
-### **Localization**
-- **intl**: ^0.20.2
-- **flutter_localizations**: SDK
 
 ### **Development Tools**
 - **build_runner**: ^2.4.8 - Code generation
@@ -232,27 +217,6 @@ lib/
 │   │       └── widgets/
 │   │           └── cart_item_widget.dart
 │   │
-│   ├── profile/                   # User profile feature
-│   │   ├── data/
-│   │   │   ├── datasources/
-│   │   │   │   └── profile_remote_datasource.dart
-│   │   │   ├── models/
-│   │   │   │   └── profile_model.dart
-│   │   │   └── repositories/
-│   │   │       └── profile_repository_impl.dart
-│   │   ├── domain/
-│   │   │   ├── entities/
-│   │   │   │   └── profile_entity.dart
-│   │   │   ├── repositories/
-│   │   │   │   └── profile_repository.dart
-│   │   │   └── usecases/
-│   │   │       └── get_profile.dart
-│   │   └── presentation/
-│   │       ├── pages/
-│   │       │   └── profile_page.dart
-│   │       ├── providers/
-│   │       │   └── profile_provider.dart
-│   │       └── widgets/
 │   │
 │   └── dashboard/                 # Main dashboard
 │       └── presentation/

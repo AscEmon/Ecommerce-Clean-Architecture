@@ -83,7 +83,7 @@ Future<void> initDependencies() async {
     ),
   );
 
-  sl.registerLazySingleton(() => LoginUseCase(authRepository: sl()));
+  sl.registerFactory(() => LoginUseCase(authRepository: sl()));
 
   final sharedPreferences = await SharedPreferences.getInstance();
   sl.registerSingleton<SharedPreferences>(sharedPreferences);
