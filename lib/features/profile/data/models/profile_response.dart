@@ -25,13 +25,12 @@ class ProfileResponse extends Profile {
   final String? role;
 
   const ProfileResponse({
-    required super.id,
-    required super.fullName,
+    super.id,
+    super.fullName,
     this.firstName,
     this.lastName,
-
-    required super.email,
-    required super.phone,
+    super.email,
+    super.phone,
     this.username,
     this.password,
     this.birthDate,
@@ -57,12 +56,15 @@ class ProfileResponse extends Profile {
   factory ProfileResponse.fromJson(
     Map<String, dynamic> json,
   ) => ProfileResponse(
-    id: json["id"] ?? 0,
-    firstName: json["firstName"] ?? '',
-    lastName: json["lastName"] ?? '',
+    // Required entity fields - transform from nullable API data
+    id: json["id"],
+    fullName: _buildFullName(json["firstName"], json["lastName"]),
+    email: json["email"],
+    phone: json["phone"],
 
-    email: json["email"] ?? '',
-    phone: json["phone"] ?? '',
+    // Optional model fields - keep as received from API
+    firstName: json["firstName"],
+    lastName: json["lastName"],
     username: json["username"],
     password: json["password"],
     birthDate: json["birthDate"],
@@ -83,8 +85,20 @@ class ProfileResponse extends Profile {
     userAgent: json["userAgent"],
     crypto: json["crypto"] == null ? null : Crypto.fromJson(json["crypto"]),
     role: json["role"],
-    fullName: '${json['firstName']} ${json['lastName']}',
   );
+
+  /// Helper method to build full name from first and last name
+  /// Handles null values and provides clean output
+  static String _buildFullName(String? firstName, String? lastName) {
+    final first = firstName?.trim() ?? '';
+    final last = lastName?.trim() ?? '';
+
+    if (first.isEmpty && last.isEmpty) {
+      return 'Unknown User'; // Default when both are null
+    }
+
+    return '$first $last'.trim();
+  }
 
   Map<String, dynamic> toJson() => {
     "id": id,

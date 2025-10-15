@@ -1,14 +1,17 @@
-import 'package:flutter/material.dart';
+import 'package:equatable/equatable.dart';
 
 import '../../../domain/entities/profile.dart';
 
-@immutable
-class ProfileState {
+class ProfileState extends Equatable {
   final bool isLoading;
   final String? errorMessage;
   final Profile? profile;
 
-  const ProfileState({this.isLoading = false, this.errorMessage, this.profile});
+  const ProfileState({
+    this.isLoading = false,
+    this.errorMessage,
+    this.profile,
+  });
 
   ProfileState copyWith({
     bool? isLoading,
@@ -21,4 +24,7 @@ class ProfileState {
       profile: profile ?? this.profile,
     );
   }
+
+  @override
+  List<Object?> get props => [isLoading, errorMessage, profile];
 }
