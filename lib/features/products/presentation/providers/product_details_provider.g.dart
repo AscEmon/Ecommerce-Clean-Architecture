@@ -15,11 +15,12 @@ const productDetailsProvider = ProductDetailsNotifierFamily._();
 
 /// Provider for product details that uses AsyncValue for state management
 final class ProductDetailsNotifierProvider
-    extends $AsyncNotifierProvider<ProductDetailsNotifier, Product> {
+    extends
+        $AsyncNotifierProvider<ProductDetailsNotifier, ProductDetailsState> {
   /// Provider for product details that uses AsyncValue for state management
   const ProductDetailsNotifierProvider._({
     required ProductDetailsNotifierFamily super.from,
-    required int super.argument,
+    required int? super.argument,
   }) : super(
          retry: null,
          name: r'productDetailsProvider',
@@ -55,7 +56,7 @@ final class ProductDetailsNotifierProvider
 }
 
 String _$productDetailsNotifierHash() =>
-    r'6b91a1041a974c645a481da354031f3cd140e9ad';
+    r'83c1672c39be794e1cc13dd0d3deca9fb4ef7907';
 
 /// Provider for product details that uses AsyncValue for state management
 
@@ -63,10 +64,10 @@ final class ProductDetailsNotifierFamily extends $Family
     with
         $ClassFamilyOverride<
           ProductDetailsNotifier,
-          AsyncValue<Product>,
-          Product,
-          FutureOr<Product>,
-          int
+          AsyncValue<ProductDetailsState>,
+          ProductDetailsState,
+          FutureOr<ProductDetailsState>,
+          int?
         > {
   const ProductDetailsNotifierFamily._()
     : super(
@@ -79,7 +80,7 @@ final class ProductDetailsNotifierFamily extends $Family
 
   /// Provider for product details that uses AsyncValue for state management
 
-  ProductDetailsNotifierProvider call(int productId) =>
+  ProductDetailsNotifierProvider call([int? productId]) =>
       ProductDetailsNotifierProvider._(argument: productId, from: this);
 
   @override
@@ -88,21 +89,23 @@ final class ProductDetailsNotifierFamily extends $Family
 
 /// Provider for product details that uses AsyncValue for state management
 
-abstract class _$ProductDetailsNotifier extends $AsyncNotifier<Product> {
-  late final _$args = ref.$arg as int;
-  int get productId => _$args;
+abstract class _$ProductDetailsNotifier
+    extends $AsyncNotifier<ProductDetailsState> {
+  late final _$args = ref.$arg as int?;
+  int? get productId => _$args;
 
-  FutureOr<Product> build(int productId);
+  FutureOr<ProductDetailsState> build([int? productId]);
   @$mustCallSuper
   @override
   void runBuild() {
     final created = build(_$args);
-    final ref = this.ref as $Ref<AsyncValue<Product>, Product>;
+    final ref =
+        this.ref as $Ref<AsyncValue<ProductDetailsState>, ProductDetailsState>;
     final element =
         ref.element
             as $ClassProviderElement<
-              AnyNotifier<AsyncValue<Product>, Product>,
-              AsyncValue<Product>,
+              AnyNotifier<AsyncValue<ProductDetailsState>, ProductDetailsState>,
+              AsyncValue<ProductDetailsState>,
               Object?,
               Object?
             >;

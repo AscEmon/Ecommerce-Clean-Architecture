@@ -21,15 +21,13 @@ class ProductDetailsPage extends ConsumerWidget {
       appBar: GlobalAppBar(title: 'Product Details'),
       body: state.when(
         loading: () => Center(child: GlobalLoader()),
-        error:
-            (error, stackTrace) => const Center(
-              child: GlobalText(str: 'Something went wrong. Please try again.'),
-            ),
-        data:
-            (product) => RefreshIndicator(
-              onRefresh: () => notifier.refresh(),
-              child: ProductDetailsContent(product: product),
-            ),
+        error: (error, stackTrace) => const Center(
+          child: GlobalText(str: 'Something went wrong. Please try again.'),
+        ),
+        data: (productDetailsState) => RefreshIndicator(
+          onRefresh: () => notifier.refresh(),
+          child: ProductDetailsContent(product: productDetailsState.product!),
+        ),
       ),
     );
   }
