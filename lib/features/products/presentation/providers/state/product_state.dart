@@ -1,7 +1,9 @@
+import 'package:equatable/equatable.dart';
+
 import '../../../domain/entities/product.dart';
 
 /// State class for product list with pagination info
-class ProductState {
+class ProductState extends Equatable {
   final List<Product> products;
   final bool hasMore;
   final bool isLoadingMore;
@@ -39,11 +41,23 @@ class ProductState {
       selectedCategory: selectedCategory ?? this.selectedCategory,
     );
   }
-  
+
   /// Whether any filters are applied
   bool get hasFilters {
     final hasSearchQuery = searchQuery != null && searchQuery!.isNotEmpty;
-    final hasCategory = selectedCategory != null && selectedCategory!.isNotEmpty;
+    final hasCategory =
+        selectedCategory != null && selectedCategory!.isNotEmpty;
     return hasSearchQuery || hasCategory;
   }
+
+  @override
+  List<Object?> get props => [
+    products,
+    hasMore,
+    isLoadingMore,
+    isLoading,
+    total,
+    searchQuery,
+    selectedCategory,
+  ];
 }

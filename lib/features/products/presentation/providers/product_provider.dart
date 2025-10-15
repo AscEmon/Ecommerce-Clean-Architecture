@@ -164,10 +164,10 @@ class ProductNotifier extends _$ProductNotifier {
 
   void setSelectedCategory(String? category) {
     final currentState = state.requireValue;
-    
+
     // Log the category change for debugging
     'Setting category from ${currentState.selectedCategory} to $category'.log();
-    
+
     // Update state with new category
     state = AsyncData(currentState.copyWith(selectedCategory: category));
 
@@ -210,18 +210,21 @@ class ProductNotifier extends _$ProductNotifier {
 
       // First explicitly update the state to clear filters
       // This ensures the UI immediately reflects the cleared filters
-      state = AsyncData(ProductState(
-        products: currentState.products,
-        hasMore: currentState.hasMore,
-        isLoadingMore: currentState.isLoadingMore,
-        total: currentState.total,
-        isLoading: true,
-        searchQuery: null, // Explicitly set to null
-        selectedCategory: null, // Explicitly set to null
-      ));
-      
+      state = AsyncData(
+        ProductState(
+          products: currentState.products,
+          hasMore: currentState.hasMore,
+          isLoadingMore: currentState.isLoadingMore,
+          total: currentState.total,
+          isLoading: true,
+          searchQuery: null, // Explicitly set to null
+          selectedCategory: null, // Explicitly set to null
+        ),
+      );
+
       // Log for debugging
-      'Filters cleared, selectedCategory: ${state.requireValue.selectedCategory}'.log();
+      'Filters cleared, selectedCategory: ${state.requireValue.selectedCategory}'
+          .log();
 
       // Fetch results with cleared filters
       final result = await _fetchFirstPage();
